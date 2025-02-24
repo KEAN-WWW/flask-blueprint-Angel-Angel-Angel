@@ -1,10 +1,16 @@
+"""
+ Flask application
+"""
+
 from flask import Flask
+from application.bp.homepage import homepage
 
-# initialize Flask service
+# Create the Flask app
 app = Flask(__name__)
-# register blueprint
 
+# Register the homepage blueprint with a URL prefix
+app.register_blueprint(homepage, url_prefix='/homepage')
 
-if __name__ == "__main__":
+# Run the Flask app
+if __name__ == '__main__':
     app.run(debug=True)
-
